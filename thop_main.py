@@ -26,7 +26,6 @@
 from string import lower
 from thop_classes import *
 
-
 #############################################
 #####----------Set up the Game----------#####
 #############################################
@@ -69,7 +68,7 @@ item1 = item('silver key', True, False,0)
 item2 = item('battle axe', True, True,10)
 item3 = item('bench', False, False,00)
 character1 = character('Midget', True, False, '',160)
-character2 = character('Angry Goblin', True, False, '',200)
+character2 = character('Angry Goblin', True, False, '',170)
 door1 = door('west',start,False,'')
 door2 = door('north',room4,True,'book of radness')
 door3 = door('east',room3,True,'broad sword')
@@ -96,7 +95,7 @@ door2 = door('north',room9,True,'battle axe')
 room5.setup('room5',[item1], [character1], [door1,door2], "You walk into a strange room.")
 
 #room6
-character1 = character('Angel', True, True, "You must search for what you desire.",540)
+character1 = character('Angel', True, True, "You must search for what you desire.",500)
 door1 = door('north',room10,True,'silver key')
 room6.setup('room6',[], [character1], [door1], "You are near the end.")
 
@@ -201,14 +200,14 @@ while user_input <> 'exit':
                         room3.add_item(item2)
                         door2 = door('south',room11,True,'diamond key')
                         room6.doors.append(door2)
-                        character1 = character('Angel of Doom', True, True, "You can't kill what is dead.",670)
+                        character1 = character('Angel of Doom', True, True, "You can't kill what is dead.",650)
                         room6.characters.append(character1)
                         character2 = character('Dragon', True, True, "FIRE!",1000)
                         room4.characters.append(character2)
                     elif c.name == 'Ogress':
                         item1 = item('brass key', True, False,0)
                         room1.add_item(item1)
-                        character1 = character('Killer Dwarf', True, True, "You think you can match me?.",500)
+                        character1 = character('Killer Dwarf', True, True, "You think you can match me?.",460)
                         room1.characters.append(character1)
                         print "You hear a loud explosion to the west."
                     elif c.name == 'Devil Spawn':
@@ -254,6 +253,8 @@ while user_input <> 'exit':
         you.points -= 1000
         you.stats()
         user_input = 'exit'
+
+
 
 
 
