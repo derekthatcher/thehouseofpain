@@ -5,6 +5,7 @@
 #####---------Object Oriented-----------#####
 #############################################
 #copyright derek thatcher 2013
+#now on github.com/derekthatcher/thehouseofpain/
 #################################
 #       #       #       #       #
 #       |       |       |       #
