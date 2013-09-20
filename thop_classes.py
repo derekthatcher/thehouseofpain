@@ -150,6 +150,45 @@ class character:
                 player.points -= 50
                 player.health -= 25
         return False
+#############################################
+#####---------higescore class-----------#####
+#############################################
+import shelve
+class highscore:
+    def __init__(self):
+        self.scores = []
+
+    def save_score(self):
+        if self.scores[0] == []:
+            self.scores.remove(self.scores[0])
+        self.scores.sort(key=lambda tup: tup[1]) 
+        shelfFile = shelve.open('thop_savefile')
+        shelfFile ['scores'] = self.scores
+        shelfFile.close()
+    
+    def load_score(self):
+        shelfFile = shelve.open('thop_savefile')
+        self.scores = shelfFile ['scores']
+        shelfFile.close()
+
+    def add_score(self, name, score):
+        self.scores.append((name,score))
+
+
+    def print_score(self):
+        #need to order list and format printing
+        print "------------------------------------------"
+        print " Top Ten High Scores"
+        print "------------------------------------------"
+        if len(self.scores)<=10:
+            l = 0
+        else:
+            l = len(self.scores) - 11
+        for n in range(len(self.scores)-1,l,-1):
+            if len(self.scores[n])>1:
+                print "Player %s scored %s points"%(self.scores[n][0],self.scores[n][1])
+
+
 
 #############################################
 #####-----------player class------------#####

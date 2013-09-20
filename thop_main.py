@@ -147,6 +147,8 @@ print "At any time you may view your (i)nventory or vital (s)tats. Type exit to 
 print "What do they call you, brave adventurer?"
 user_input = raw_input('>')
 you = player(user_input, start)
+highscores = highscore()
+highscores.load_score()
 #####super powers#####
 #item1 = item('super axe', True, True,500)
 #you.inventory.append(item1)
@@ -254,6 +256,11 @@ while user_input <> 'exit':
         you.points -= 1000
         you.stats()
         user_input = 'exit'
+
+#end of game
+highscores.add_score(you.name, you.points)
+highscores.save_score()
+highscores.print_score()
 
 
 
